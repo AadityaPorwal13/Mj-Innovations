@@ -15,7 +15,7 @@ const motionObserver = new IntersectionObserver((entries) => {
   });
 }, { threshold: 0.08, rootMargin: '0px 0px -40px 0px' });
 
-document.querySelectorAll('.fade-up, .fade-in, .stagger, .scale-in').forEach(el => {
+document.querySelectorAll('.fade-up, .fade-in, .stagger, .scale-in, .reveal-text').forEach(el => {
   motionObserver.observe(el);
 });
 
@@ -480,8 +480,8 @@ document.querySelectorAll('.btn-primary, .btn-nav-fill').forEach(btn => {
   });
 });
 
-/* ── Tilt effect on trust & hiw cards ── */
-document.querySelectorAll('.trust-card, .hiw-step, .cust-card').forEach(card => {
+/* ── Tilt effect on cards ── */
+document.querySelectorAll('.trust-card, .hiw-step, .cust-card, .tilt-card').forEach(card => {
   card.addEventListener('mousemove', e => {
     const r = card.getBoundingClientRect();
     const x = (e.clientX - r.left) / r.width  - 0.5;
