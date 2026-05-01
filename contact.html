@@ -137,31 +137,40 @@
         <h3>Send us a message</h3>
         <div class="fsub">We'll get back to you within 2 hours on business days</div>
         <div id="contact-form-wrap">
-          <form id="contact-form" onsubmit="submitContact(event)">
+          <form id="contact-form" action="contact.php" method="POST" onsubmit="submitContact(event)">
+            <input type="text" name="_honey" style="display:none" tabindex="-1" autocomplete="off">
             <div class="form-row">
-              <div class="fg"><label>First Name</label><input type="text" placeholder="Jessica" required></div>
-              <div class="fg"><label>Last Name</label><input type="text" placeholder="Smith" required></div>
+              <div class="fg"><label>First Name</label><input type="text" name="first_name" placeholder="Jessica" required></div>
+              <div class="fg"><label>Last Name</label><input type="text" name="last_name" placeholder="Smith" required></div>
             </div>
-            <div class="fg"><label>Work Email</label><input type="email" placeholder="jessica@company.com" required></div>
-            <div class="fg"><label>Company</label><input type="text" placeholder="Your organisation" required></div>
-            <div class="fg"><label>Role / Title</label><input type="text" placeholder="Head of Security" required></div>
+            <div class="fg"><label>Work Email</label><input type="email" name="email" placeholder="jessica@company.com" required></div>
+            <div class="fg"><label>Company</label><input type="text" name="company" placeholder="Your organisation" required></div>
+            <div class="fg"><label>Role / Title</label><input type="text" name="role" placeholder="Head of Security" required></div>
             <div class="fg"><label>Industry</label>
-              <select required>
+              <select name="industry" required>
                 <option value="" disabled selected>Select your industry</option>
-                <option>Smart Cities / Government</option><option>Airports &amp; Transit</option>
-                <option>Retail &amp; Banking</option><option>Healthcare</option>
-                <option>Manufacturing &amp; Industrial</option><option>Education</option><option>Hospitality</option><option>Other</option>
+                <option value="Smart Cities / Government">Smart Cities / Government</option>
+                <option value="Airports &amp; Transit">Airports &amp; Transit</option>
+                <option value="Retail &amp; Banking">Retail &amp; Banking</option>
+                <option value="Healthcare">Healthcare</option>
+                <option value="Manufacturing &amp; Industrial">Manufacturing &amp; Industrial</option>
+                <option value="Education">Education</option>
+                <option value="Hospitality">Hospitality</option>
+                <option value="Other">Other</option>
               </select>
             </div>
             <div class="fg"><label>How can we help?</label>
-              <select>
+              <select name="enquiry_type">
                 <option value="" disabled selected>Select enquiry type</option>
-                <option>Book a demo</option><option>Request a quote</option>
-                <option>Technical question</option><option>Partnership enquiry</option><option>General enquiry</option>
+                <option value="Book a demo">Book a demo</option>
+                <option value="Request a quote">Request a quote</option>
+                <option value="Technical question">Technical question</option>
+                <option value="Partnership enquiry">Partnership enquiry</option>
+                <option value="General enquiry">General enquiry</option>
               </select>
             </div>
-            <div class="fg"><label>Message (optional)</label><textarea placeholder="Tell us about your security needs, current camera setup, or any specific questions..."></textarea></div>
-            <button type="submit" class="btn-primary form-submit">Send Message →</button>
+            <div class="fg"><label>Message (optional)</label><textarea name="message" placeholder="Tell us about your security needs, current camera setup, or any specific questions..."></textarea></div>
+            <button type="submit" class="btn-primary form-submit" id="submit-btn">Send Message →</button>
           </form>
         </div>
         <div class="success-box" id="contact-success">
@@ -271,8 +280,36 @@
 <script>
 function submitContact(e){
   e.preventDefault();
-  document.getElementById('contact-form-wrap').style.display='none';
-  document.getElementById('contact-success').style.display='block';
+  const form = e.target;
+  const btn = document.getElementById('submit-btn');
+  const originalText = btn.innerText;
+  
+  btn.innerText = 'Sending...';
+  btn.disabled = true;
+
+  const formData = new FormData(form);
+
+  fetch('contact.php', {
+    method: 'POST',
+    body: formData
+  })
+  .then(response => response.json())
+  .then(data => {
+    if (data.status === 'success') {
+      document.getElementById('contact-form-wrap').style.display='none';
+      document.getElementById('contact-success').style.display='block';
+    } else {
+      alert('Error: ' + data.message);
+      btn.innerText = originalText;
+      btn.disabled = false;
+    }
+  })
+  .catch(error => {
+    console.error('Error:', error);
+    alert('An error occurred while sending your message. Please try again.');
+    btn.innerText = originalText;
+    btn.disabled = false;
+  });
 }
 function toggleFaq(el){
   const a=el.nextElementSibling;
