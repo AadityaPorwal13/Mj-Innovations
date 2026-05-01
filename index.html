@@ -19,13 +19,13 @@
   <ul class="nav-links">
     <li><a href="index.html" class="active">Home</a></li>
     <li><a href="solutions.html">Solutions</a></li>
-    <li><a href="#">Technology</a></li>
-    <li><a href="#">About</a></li>
+    <li><a href="technology.html">Technology</a></li>
+    <li><a href="about.html">About</a></li>
     <li><a href="contact.html">Contact</a></li>
   </ul>
   <div class="nav-cta-group">
     <button class="btn-nav-outline" onclick="location.href='contact.html'">Contact Sales</button>
-    <button class="btn-nav-fill"    onclick="location.href='#'">Get Demo →</button>
+    <button class="btn-nav-fill"    onclick="location.href='get-demo.html'">Get Demo →</button>
   </div>
   <button class="nav-hamburger" id="hamburger" aria-label="Toggle menu">
     <span></span><span></span><span></span>
@@ -34,11 +34,11 @@
 <div class="nav-drawer" id="drawer">
   <a href="index.html">Home</a>
   <a href="solutions.html">Solutions</a>
-  <a href="#">Technology</a>
-  <a href="#">About</a>
+  <a href="technology.html">Technology</a>
+  <a href="about.html">About</a>
   <a href="contact.html">Contact</a>
   <div class="drawer-cta">
-    <button class="btn-primary" style="width:100%;justify-content:center" onclick="location.href='#'">Get a Demo →</button>
+    <button class="btn-primary" style="width:100%;justify-content:center" onclick="location.href='get-demo.html'">Get a Demo →</button>
   </div>
 </div>
 
@@ -64,6 +64,9 @@
       <div class="hero-live-badge">
         <span class="live-indicator"></span>AI Vision · Live Monitoring
       </div>
+      <div class="hero-typing-bar">
+        <span class="typing-prefix">Detecting: </span><span class="typing-text" id="typing-text">Intrusion · Zone B</span><span class="typing-cursor">|</span>
+      </div>
       <h1>
         AI that<br>
         <strong>Sees Every<br>Threat.</strong>
@@ -84,7 +87,7 @@
 
       <div class="hero-ctas">
         <button class="btn-primary" onclick="location.href='contact.html'">Get a Free Demo <span class="arrow-icon">→</span></button>
-        <button class="btn-secondary-light" onclick="location.href='#'">Explore Technology</button>
+        <button class="btn-secondary-light" onclick="location.href='technology.html'">Explore Technology</button>
       </div>
 
       <div class="hero-metrics">
@@ -322,7 +325,7 @@
         <li class="feat-pill">Automated threat classification     <span class="pill-check"><svg viewBox="0 0 12 12"><polyline points="2,6 5,9 10,3"/></svg></span></li>
         <li class="feat-pill">Works with existing cameras        <span class="pill-check"><svg viewBox="0 0 12 12"><polyline points="2,6 5,9 10,3"/></svg></span></li>
       </ul>
-      <button class="btn-primary" onclick="location.href='#'">Explore Technology <span class="arrow-icon">→</span></button>
+      <button class="btn-primary" onclick="location.href='technology.html'">Explore Technology <span class="arrow-icon">→</span></button>
     </div>
     <!-- Feed monitor instead of video -->
     <div class="fade-in" style="transition-delay:0.15s">
@@ -510,14 +513,83 @@
 </div>
 </div>
 
+<!-- ═══ HOW IT WORKS ══════════════════════════ -->
+<div class="hiw-section">
+  <div class="hiw-grid-bg"></div>
+  <div class="container">
+    <div class="fade-up" style="text-align:center;max-width:600px;margin:0 auto 64px">
+      <div class="eyebrow">Simple Deployment</div>
+      <h2 class="section-title">From cameras to AI<br><strong>in 4 steps.</strong></h2>
+      <p class="section-sub" style="text-align:center;margin:14px auto 0">MJ Innovations plugs directly into your existing infrastructure — no rip-and-replace, no downtime.</p>
+    </div>
+    <div class="hiw-steps">
+      <div class="hiw-step fade-up">
+        <div class="hiw-step-num">01</div>
+        <div class="hiw-step-icon">
+          <svg viewBox="0 0 24 24"><path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"/><circle cx="12" cy="13" r="4"/></svg>
+        </div>
+        <h3>Connect Your Cameras</h3>
+        <p>Plug Device X into any existing CCTV, IP, analog or PTZ camera via USB-C or PoE. Setup takes under 90 seconds — no firmware changes required.</p>
+        <div class="hiw-step-tag">Any Camera Brand</div>
+      </div>
+      <div class="hiw-connector"><div class="hiw-conn-line-h"></div><div class="hiw-conn-dot"></div></div>
+      <div class="hiw-step fade-up" style="transition-delay:0.12s">
+        <div class="hiw-step-num">02</div>
+        <div class="hiw-step-icon">
+          <svg viewBox="0 0 24 24"><rect x="2" y="3" width="20" height="14" rx="2"/><polyline points="8 21 12 17 16 21"/></svg>
+        </div>
+        <h3>AI Engine Activates</h3>
+        <p>Our on-device neural processor runs 14 AI models simultaneously — detecting people, vehicles, and behaviors in real time at &lt;18ms per frame.</p>
+        <div class="hiw-step-tag">12 TOPS · Edge AI</div>
+      </div>
+      <div class="hiw-connector"><div class="hiw-conn-line-h"></div><div class="hiw-conn-dot"></div></div>
+      <div class="hiw-step fade-up" style="transition-delay:0.24s">
+        <div class="hiw-step-num">03</div>
+        <div class="hiw-step-icon">
+          <svg viewBox="0 0 24 24"><path d="M18 8h1a4 4 0 0 1 0 8h-1M2 8h16v9a4 4 0 0 1-4 4H6a4 4 0 0 1-4-4V8zM6 1v3M10 1v3M14 1v3"/></svg>
+        </div>
+        <h3>Alerts Reach Your Team</h3>
+        <p>Incidents are routed to your security dashboard, Slack, Teams, or PagerDuty in under 300ms. Full audit trail, zero missed events.</p>
+        <div class="hiw-step-tag">&lt;300ms Delivery</div>
+      </div>
+      <div class="hiw-connector"><div class="hiw-conn-line-h"></div><div class="hiw-conn-dot"></div></div>
+      <div class="hiw-step fade-up" style="transition-delay:0.36s">
+        <div class="hiw-step-num">04</div>
+        <div class="hiw-step-icon">
+          <svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+        </div>
+        <h3>Continuous Learning</h3>
+        <p>The AI refines its models over time, reducing false positives and adapting to your specific environment — getting smarter every day.</p>
+        <div class="hiw-step-tag">Self-Improving AI</div>
+      </div>
+    </div>
+  </div>
+</div>
+
 <!-- ═══ STATS ══════════════════════════════════ -->
 <div style="background:var(--navy);padding:70px 5%">
 <div class="container">
   <div class="stats-grid stagger">
-    <div class="stat-box"><div class="stat-num">AI Enabled</div><div class="stat-label">Smart Surveillance</div></div>
-    <div class="stat-box"><div class="stat-num">Real-Time</div><div class="stat-label">Instant Detection</div></div>
-    <div class="stat-box"><div class="stat-num">99.7%</div><div class="stat-label">Detection Accuracy</div></div>
-    <div class="stat-box"><div class="stat-num">&lt;300ms</div><div class="stat-label">Alert Latency</div></div>
+    <div class="stat-box">
+      <div class="stat-num" data-count="99.7" data-suffix="%">99.7%</div>
+      <div class="stat-label">Detection Accuracy</div>
+      <div class="stat-bar"><div class="stat-bar-fill" style="width:99.7%"></div></div>
+    </div>
+    <div class="stat-box">
+      <div class="stat-num" data-count="300" data-prefix="<" data-suffix="ms">&#60;300ms</div>
+      <div class="stat-label">Alert Latency</div>
+      <div class="stat-bar"><div class="stat-bar-fill" style="width:88%"></div></div>
+    </div>
+    <div class="stat-box">
+      <div class="stat-num" data-count="14" data-suffix="+">14+</div>
+      <div class="stat-label">AI Models On-Device</div>
+      <div class="stat-bar"><div class="stat-bar-fill" style="width:75%"></div></div>
+    </div>
+    <div class="stat-box">
+      <div class="stat-num" data-count="24" data-suffix="/7">24/7</div>
+      <div class="stat-label">Autonomous Watch</div>
+      <div class="stat-bar"><div class="stat-bar-fill" style="width:100%"></div></div>
+    </div>
   </div>
 </div>
 </div>
@@ -539,42 +611,58 @@
 
       <!-- SLIDE 1 — Autonomous Detection -->
       <div class="islide">
-        <div class="islide-img">
-          <img src="assets/images/Autonomous_detection.png" alt="Autonomous Detection" loading="lazy">
-        </div>
+        <div class="islide-img"><img src="assets/images/Autonomous_detection.png" alt="Autonomous Detection" loading="lazy"></div>
         <div class="islide-label">Autonomous Detection</div>
       </div>
-
       <!-- SLIDE 2 — Behavior Analysis -->
       <div class="islide">
-        <div class="islide-img">
-          <img src="assets/images/Autonomous_behavior_analysis.png" alt="Behavior Analysis" loading="lazy">
-        </div>
+        <div class="islide-img"><img src="assets/images/Autonomous_behavior_analysis.png" alt="Behavior Analysis" loading="lazy"></div>
         <div class="islide-label">Behavior Analysis</div>
       </div>
-
       <!-- SLIDE 3 — Perimeter Watch -->
       <div class="islide">
-        <div class="islide-img">
-          <img src="assets/images/perimeter_watch.png" alt="Perimeter Watch" loading="lazy">
-        </div>
+        <div class="islide-img"><img src="assets/images/perimeter_watch.png" alt="Perimeter Watch" loading="lazy"></div>
         <div class="islide-label">Perimeter Watch</div>
       </div>
-
       <!-- SLIDE 4 — Crowd Analytics -->
       <div class="islide">
-        <div class="islide-img">
-          <img src="assets/images/crowd_analytics.png" alt="Crowd Analytics" loading="lazy">
-        </div>
+        <div class="islide-img"><img src="assets/images/crowd_analytics.png" alt="Crowd Analytics" loading="lazy"></div>
         <div class="islide-label">Crowd Analytics</div>
       </div>
-
       <!-- SLIDE 5 — Incident Response -->
       <div class="islide">
-        <div class="islide-img">
-          <img src="assets/images/incident_response.png" alt="Incident Response" loading="lazy">
-        </div>
+        <div class="islide-img"><img src="assets/images/incident_response.png" alt="Incident Response" loading="lazy"></div>
         <div class="islide-label">Incident Response</div>
+      </div>
+      <!-- SLIDE 6 — Smart Cities -->
+      <div class="islide">
+        <div class="islide-img"><img src="assets/images/Urban_Intelligence_Smart_Cities.png" alt="Urban Intelligence & Smart Cities" loading="lazy"></div>
+        <div class="islide-label">Smart Cities</div>
+      </div>
+      <!-- SLIDE 7 — Airports & Transit -->
+      <div class="islide">
+        <div class="islide-img"><img src="assets/images/Airports_Rail_Transit_Hubs.png" alt="Airports, Rail & Transit Hubs" loading="lazy"></div>
+        <div class="islide-label">Airports & Transit</div>
+      </div>
+      <!-- SLIDE 8 — Retail & Banking -->
+      <div class="islide">
+        <div class="islide-img"><img src="assets/images/Retail_Banking_Financial.png" alt="Retail, Banking & Financial" loading="lazy"></div>
+        <div class="islide-label">Retail & Banking</div>
+      </div>
+      <!-- SLIDE 9 — Healthcare -->
+      <div class="islide">
+        <div class="islide-img"><img src="assets/images/Healthcare_Medical_Facilities.png" alt="Healthcare & Medical Facilities" loading="lazy"></div>
+        <div class="islide-label">Healthcare</div>
+      </div>
+      <!-- SLIDE 10 — Manufacturing -->
+      <div class="islide">
+        <div class="islide-img"><img src="assets/images/Manufacturing_Industrial.png" alt="Manufacturing & Industrial" loading="lazy"></div>
+        <div class="islide-label">Manufacturing</div>
+      </div>
+      <!-- SLIDE 11 — Government -->
+      <div class="islide">
+        <div class="islide-img"><img src="assets/images/Government_Critical_Infrastructure.png" alt="Government & Critical Infrastructure" loading="lazy"></div>
+        <div class="islide-label">Government & Infrastructure</div>
       </div>
 
     </div><!-- /islider-track -->
@@ -769,7 +857,7 @@
               <span style="font-family:var(--font-head);font-size:11px;font-weight:700;color:var(--blue-pale);background:rgba(66,165,245,0.1);border:1px solid rgba(66,165,245,0.2);padding:3px 10px;border-radius:4px">CE</span>
               <span style="font-family:var(--font-head);font-size:11px;font-weight:700;color:var(--blue-pale);background:rgba(66,165,245,0.1);border:1px solid rgba(66,165,245,0.2);padding:3px 10px;border-radius:4px">FCC</span>
               <span style="font-family:var(--font-head);font-size:11px;font-weight:700;color:var(--blue-pale);background:rgba(66,165,245,0.1);border:1px solid rgba(66,165,245,0.2);padding:3px 10px;border-radius:4px">RoHS</span>
-              <span style="font-family:var(--font-head);font-size:11px;font-weight:700;color:var(--blue-pale);background:rgba(66,165,245,0.1);border:1px solid rgba(66,165,245,0.2);padding:3px 10px;border-radius:4px">ISO</span>
+              <span style="font-family:var(--font-head);font-size:11px;font-weight:700;color:var(--blue-pale);background:rgba(66,165,245,0.1);border:1px solid rgba(66,165,245,0.2);padding:3px 10px;border-radius:4px">ISO 27001</span>
               <span style="font-family:var(--font-head);font-size:11px;font-weight:700;color:var(--blue-pale);background:rgba(66,165,245,0.1);border:1px solid rgba(66,165,245,0.2);padding:3px 10px;border-radius:4px">NDAA</span>
             </div>
           </div>
@@ -814,9 +902,64 @@
           </div>
           <div style="display:flex;gap:12px;flex-wrap:wrap">
             <button class="btn-primary" onclick="location.href='contact.html'">Order Device X <span class="arrow-icon">→</span></button>
-            <button class="btn-secondary-light" onclick="location.href='#'">See Full Specs</button>
+            <button class="btn-secondary-light" onclick="location.href='technology.html'">See Full Specs</button>
           </div>
         </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══ TRUST SIGNALS (new startup framing) ═══════ -->
+<div class="trust-section">
+  <div class="container">
+    <div class="fade-up" style="text-align:center;max-width:640px;margin:0 auto 52px">
+      <div class="eyebrow eyebrow-light">Our Commitment</div>
+      <h2 class="section-title" style="color:#fff">Built from day one<br>for <strong>enterprise-grade</strong> security.</h2>
+      <p style="color:rgba(255,255,255,0.42);margin-top:14px;font-size:1rem;line-height:1.75">MJ Innovations is a new company with an uncompromising engineering foundation. We didn't cut corners on architecture — we built the platform we'd want protecting our own facilities.</p>
+    </div>
+    <div class="trust-cards stagger">
+      <div class="trust-card">
+        <div class="trust-card-glow"></div>
+        <div class="trust-icon"><svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div>
+        <h3>Privacy-First by Design</h3>
+        <p>On-premise or private cloud deployment. Your video footage never leaves your infrastructure. Full GDPR &amp; CCPA compliance built in from day one.</p>
+        <div class="trust-card-tag">AES-256 · TLS 1.3</div>
+      </div>
+      <div class="trust-card">
+        <div class="trust-card-glow"></div>
+        <div class="trust-icon"><svg viewBox="0 0 24 24"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg></div>
+        <h3>Zero False-Positive Architecture</h3>
+        <p>Domain-trained models dramatically cut alert fatigue. Our AI knows the difference between a shadow and a real threat — tuned for your specific environment.</p>
+        <div class="trust-card-tag">Context-Aware AI</div>
+      </div>
+      <div class="trust-card">
+        <div class="trust-card-glow"></div>
+        <div class="trust-icon"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 8v4l3 3"/></svg></div>
+        <h3>24/7 Autonomous Operation</h3>
+        <p>AI never sleeps, never blinks, never loses focus. Continuous monitoring across every camera, every zone, every minute — without human fatigue.</p>
+        <div class="trust-card-tag">Edge Processing</div>
+      </div>
+      <div class="trust-card">
+        <div class="trust-card-glow"></div>
+        <div class="trust-icon"><svg viewBox="0 0 24 24"><path d="M18 20V10M12 20V4M6 20v-6"/></svg></div>
+        <h3>Deep Forensic Intelligence</h3>
+        <p>Search recorded footage by object, person, color, or behavior. Find the exact moment that matters in seconds, not hours — with AI-powered timeline search.</p>
+        <div class="trust-card-tag">Semantic Search</div>
+      </div>
+      <div class="trust-card">
+        <div class="trust-card-glow"></div>
+        <div class="trust-icon"><svg viewBox="0 0 24 24"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg></div>
+        <h3>Works With Existing Cameras</h3>
+        <p>No expensive hardware replacement. Device X plugs into any CCTV, IP, analog, or PTZ camera and instantly upgrades it into an AI surveillance node.</p>
+        <div class="trust-card-tag">ONVIF · RTSP · HDMI</div>
+      </div>
+      <div class="trust-card">
+        <div class="trust-card-glow"></div>
+        <div class="trust-icon"><svg viewBox="0 0 24 24"><path d="M21 2H3v16h5l3 3 3-3h7V2z"/></svg></div>
+        <h3>Seamless Integrations</h3>
+        <p>Connect to Slack, Teams, PagerDuty, or any security platform via our open REST API and pre-built connectors. Alerts reach your team in under 300ms.</p>
+        <div class="trust-card-tag">Open API · Webhooks</div>
       </div>
     </div>
   </div>
@@ -839,6 +982,42 @@
     <div class="v-cell"><div class="v-icon"><svg viewBox="0 0 24 24"><path d="M21 2H3v16h5l3 3 3-3h7V2z"/></svg></div><h3>Seamless Integrations</h3><p>Connect to Slack, Teams, PagerDuty, or any security platform via our open API and pre-built connectors.</p></div>
   </div>
 </div>
+</div>
+
+<!-- ═══ FAQ SECTION ════════════════════════════ -->
+<div class="faq-section">
+  <div class="container" style="max-width:860px">
+    <div class="fade-up" style="text-align:center;margin-bottom:52px">
+      <div class="eyebrow">Common Questions</div>
+      <h2 class="section-title">Everything you need<br><strong>to know.</strong></h2>
+    </div>
+    <div class="faq-list">
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)">Do I need to replace my existing cameras?<span class="faq-arrow">›</span></button>
+        <div class="faq-a"><p>No — that's the key advantage of MJ Innovations. Device X plugs into any existing camera (CCTV, IP, PTZ, analog) and instantly upgrades it into a full AI surveillance node. You keep your existing infrastructure investment.</p></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)">How long does deployment take?<span class="faq-arrow">›</span></button>
+        <div class="faq-a"><p>Most deployments are live in under 30 minutes. Device X setup takes under 90 seconds per camera. Our onboarding team provides full remote support — no on-site engineers required for standard installations.</p></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)">Where is my video footage stored?<span class="faq-arrow">›</span></button>
+        <div class="faq-a"><p>Your raw video footage never leaves your premises. Only AI metadata, alerts, and anonymized analytics are transmitted to our platform — encrypted via AES-256 and TLS 1.3. You maintain complete sovereignty over your footage.</p></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)">What AI models are included?<span class="faq-arrow">›</span></button>
+        <div class="faq-a"><p>Device X ships with 14 on-device AI models including person detection, vehicle classification, face detection (privacy-compliant), loitering detection, crowd density analysis, perimeter breach, object left/removed, and more. New models are pushed via OTA updates.</p></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)">Can I integrate with my existing security platform?<span class="faq-arrow">›</span></button>
+        <div class="faq-a"><p>Yes. MJ Innovations provides a REST API, webhooks, and pre-built connectors for Slack, Microsoft Teams, PagerDuty, Milestone, Genetec, and Avigilon. Custom integrations are available for enterprise deployments.</p></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)">Is MJ Innovations suitable for small businesses?<span class="faq-arrow">›</span></button>
+        <div class="faq-a"><p>Absolutely. Our platform scales from a single camera to thousands. We offer flexible licensing — pay per device or per site. We're here to bring enterprise-grade AI security to organizations of every size.</p></div>
+      </div>
+    </div>
+  </div>
 </div>
 
 <!-- ═══ CASE STUDIES ══════════════════════════ -->
@@ -875,6 +1054,43 @@
     </div>
   </div>
 </div>
+</div>
+
+<!-- ═══ TECH STACK TICKER ════════════════════ -->
+<div class="tech-ticker-section">
+  <div class="container" style="text-align:center;margin-bottom:36px">
+    <div class="eyebrow eyebrow-light">Technology Stack</div>
+    <h2 class="section-title" style="color:#fff">Powered by cutting-edge <strong>AI infrastructure.</strong></h2>
+  </div>
+  <div class="tech-ticker-wrap">
+    <div class="tech-ticker-track" id="tech-ticker">
+      <span class="tech-tag"><span class="tech-tag-dot"></span>Computer Vision</span>
+      <span class="tech-tag"><span class="tech-tag-dot"></span>Deep Learning</span>
+      <span class="tech-tag"><span class="tech-tag-dot"></span>Edge AI · NPU</span>
+      <span class="tech-tag"><span class="tech-tag-dot"></span>YOLOv9 Architecture</span>
+      <span class="tech-tag"><span class="tech-tag-dot"></span>Transformer Vision</span>
+      <span class="tech-tag"><span class="tech-tag-dot"></span>AES-256 Encryption</span>
+      <span class="tech-tag"><span class="tech-tag-dot"></span>TLS 1.3</span>
+      <span class="tech-tag"><span class="tech-tag-dot"></span>ONVIF / RTSP</span>
+      <span class="tech-tag"><span class="tech-tag-dot"></span>REST API · Webhooks</span>
+      <span class="tech-tag"><span class="tech-tag-dot"></span>Real-Time Analytics</span>
+      <span class="tech-tag"><span class="tech-tag-dot"></span>Multi-Camera Fusion</span>
+      <span class="tech-tag"><span class="tech-tag-dot"></span>OTA Model Updates</span>
+      <!-- duplicate for infinite scroll -->
+      <span class="tech-tag"><span class="tech-tag-dot"></span>Computer Vision</span>
+      <span class="tech-tag"><span class="tech-tag-dot"></span>Deep Learning</span>
+      <span class="tech-tag"><span class="tech-tag-dot"></span>Edge AI · NPU</span>
+      <span class="tech-tag"><span class="tech-tag-dot"></span>YOLOv9 Architecture</span>
+      <span class="tech-tag"><span class="tech-tag-dot"></span>Transformer Vision</span>
+      <span class="tech-tag"><span class="tech-tag-dot"></span>AES-256 Encryption</span>
+      <span class="tech-tag"><span class="tech-tag-dot"></span>TLS 1.3</span>
+      <span class="tech-tag"><span class="tech-tag-dot"></span>ONVIF / RTSP</span>
+      <span class="tech-tag"><span class="tech-tag-dot"></span>REST API · Webhooks</span>
+      <span class="tech-tag"><span class="tech-tag-dot"></span>Real-Time Analytics</span>
+      <span class="tech-tag"><span class="tech-tag-dot"></span>Multi-Camera Fusion</span>
+      <span class="tech-tag"><span class="tech-tag-dot"></span>OTA Model Updates</span>
+    </div>
+  </div>
 </div>
 
 <!-- ═══ CTA ════════════════════════════════════ -->
@@ -929,10 +1145,10 @@
     <div class="footer-col">
       <h5>Products</h5>
       <ul>
-        <li><a href="#">Vision AI</a></li>
-        <li><a href="#">Behavior Analytics</a></li>
-        <li><a href="#">Alert System</a></li>
-        <li><a href="#">Device X</a></li>
+        <li><a href="technology.html">Vision AI</a></li>
+        <li><a href="technology.html">Behavior Analytics</a></li>
+        <li><a href="technology.html">Alert System</a></li>
+        <li><a href="technology.html">Device X</a></li>
       </ul>
     </div>
     <div class="footer-col">
@@ -947,7 +1163,7 @@
     <div class="footer-col">
       <h5>Company</h5>
       <ul>
-        <li><a href="#">About Us</a></li>
+        <li><a href="about.html">About Us</a></li>
         <li><a href="contact.html">Contact</a></li>
         <li><a href="privacy-policy.html">Privacy Policy</a></li>
         <li><a href="terms-conditions.html">Terms of Service</a></li>

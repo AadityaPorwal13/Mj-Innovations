@@ -312,3 +312,213 @@ document.querySelectorAll('video[data-lazy]').forEach(v => vidObserver.observe(v
   if (btnPrev) btnPrev.disabled = true;
   goTo(0);
 })();
+
+
+/* ── Typing animation for hero detect bar ── */
+(function initTypingBar() {
+  const el = document.getElementById('typing-text');
+  if (!el) return;
+  const messages = [
+    'Intrusion · Zone B',
+    'Loitering · CAM-02',
+    'Crowd density alert',
+    'Perimeter breach · North',
+    'Unknown vehicle · Lot A',
+    'Object left · Gate 3',
+  ];
+  let idx = 0;
+  function typeNext() {
+    const msg = messages[idx % messages.length];
+    idx++;
+    el.textContent = '';
+    let i = 0;
+    const interval = setInterval(() => {
+      el.textContent += msg[i];
+      i++;
+      if (i >= msg.length) {
+        clearInterval(interval);
+        setTimeout(typeNext, 2800);
+      }
+    }, 55);
+  }
+  setTimeout(typeNext, 1500);
+})();
+
+/* ── FAQ accordion ── */
+window.toggleFaq = function(btn) {
+  const item = btn.parentElement;
+  const ans  = item.querySelector('.faq-a');
+  const isOpen = btn.classList.contains('open');
+  // Close all
+  document.querySelectorAll('.faq-q.open').forEach(q => {
+    q.classList.remove('open');
+    q.parentElement.querySelector('.faq-a').classList.remove('open');
+  });
+  if (!isOpen) {
+    btn.classList.add('open');
+    ans.classList.add('open');
+  }
+};
+
+/* ── Stat bar + count-up animation ── */
+(function initStats() {
+  const statBoxes = document.querySelectorAll('.stat-box');
+  if (!statBoxes.length) return;
+  const io = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if (!entry.isIntersecting) return;
+      const box = entry.target;
+      box.classList.add('bar-animated');
+      const numEl = box.querySelector('.stat-num');
+      if (!numEl) return;
+      const target = parseFloat(numEl.dataset.count);
+      if (isNaN(target)) return;
+      const prefix = numEl.dataset.prefix || '';
+      const suffix = numEl.dataset.suffix || '';
+      const duration = 1400;
+      const start = performance.now();
+      const isDecimal = String(target).includes('.');
+      function step(now) {
+        const t = Math.min((now - start) / duration, 1);
+        const ease = 1 - Math.pow(1 - t, 3);
+        const val = target * ease;
+        numEl.textContent = prefix + (isDecimal ? val.toFixed(1) : Math.floor(val)) + suffix;
+        if (t < 1) requestAnimationFrame(step);
+      }
+      requestAnimationFrame(step);
+      io.unobserve(box);
+    });
+  }, { threshold: 0.3 });
+  statBoxes.forEach(b => io.observe(b));
+})();
+
+/* ── Hero particle canvas ── */
+(function initParticles() {
+  const hero = document.querySelector('.hero');
+  if (!hero) return;
+  const canvas = document.createElement('canvas');
+  canvas.id = 'hero-particles';
+  hero.insertBefore(canvas, hero.firstChild);
+  const ctx = canvas.getContext('2d');
+  let W, H, particles = [];
+
+  function resize() {
+    W = canvas.width  = hero.offsetWidth;
+    H = canvas.height = hero.offsetHeight;
+  }
+  resize();
+  window.addEventListener('resize', resize, { passive: true });
+
+  class Particle {
+    constructor() { this.reset(); }
+    reset() {
+      this.x = Math.random() * W;
+      this.y = Math.random() * H;
+      this.r = Math.random() * 1.5 + 0.3;
+      this.vx = (Math.random() - 0.5) * 0.35;
+      this.vy = (Math.random() - 0.5) * 0.35;
+      this.alpha = Math.random() * 0.45 + 0.1;
+    }
+    update() {
+      this.x += this.vx; this.y += this.vy;
+      if (this.x < 0 || this.x > W || this.y < 0 || this.y > H) this.reset();
+    }
+    draw() {
+      ctx.beginPath();
+      ctx.arc(this.x, this.y, this.r, 0, Math.PI * 2);
+      ctx.fillStyle = `rgba(66,165,245,${this.alpha})`;
+      ctx.fill();
+    }
+  }
+
+  for (let i = 0; i < 80; i++) particles.push(new Particle());
+
+  function drawConnections() {
+    for (let i = 0; i < particles.length; i++) {
+      for (let j = i + 1; j < particles.length; j++) {
+        const dx = particles[i].x - particles[j].x;
+        const dy = particles[i].y - particles[j].y;
+        const dist = Math.sqrt(dx * dx + dy * dy);
+        if (dist < 90) {
+          ctx.beginPath();
+          ctx.moveTo(particles[i].x, particles[i].y);
+          ctx.lineTo(particles[j].x, particles[j].y);
+          ctx.strokeStyle = `rgba(66,165,245,${0.12 * (1 - dist / 90)})`;
+          ctx.lineWidth = 0.5;
+          ctx.stroke();
+        }
+      }
+    }
+  }
+
+  let rafId;
+  function animate() {
+    ctx.clearRect(0, 0, W, H);
+    particles.forEach(p => { p.update(); p.draw(); });
+    drawConnections();
+    rafId = requestAnimationFrame(animate);
+  }
+  animate();
+
+  // Pause when tab not visible
+  document.addEventListener('visibilitychange', () => {
+    if (document.hidden) cancelAnimationFrame(rafId);
+    else animate();
+  });
+})();
+
+/* ── Magnetic button micro-interaction ── */
+document.querySelectorAll('.btn-primary, .btn-nav-fill').forEach(btn => {
+  btn.addEventListener('mousemove', e => {
+    const r = btn.getBoundingClientRect();
+    const x = e.clientX - r.left - r.width / 2;
+    const y = e.clientY - r.top - r.height / 2;
+    btn.style.transform = `translate(${x * 0.12}px, ${y * 0.12}px) translateY(-2px)`;
+  });
+  btn.addEventListener('mouseleave', () => {
+    btn.style.transform = '';
+  });
+});
+
+/* ── Tilt effect on trust & hiw cards ── */
+document.querySelectorAll('.trust-card, .hiw-step, .cust-card').forEach(card => {
+  card.addEventListener('mousemove', e => {
+    const r = card.getBoundingClientRect();
+    const x = (e.clientX - r.left) / r.width  - 0.5;
+    const y = (e.clientY - r.top)  / r.height - 0.5;
+    card.style.transform = `perspective(600px) rotateX(${-y * 5}deg) rotateY(${x * 5}deg) translateY(-4px)`;
+  });
+  card.addEventListener('mouseleave', () => {
+    card.style.transform = '';
+    card.style.transition = 'transform 0.4s ease';
+    setTimeout(() => { card.style.transition = ''; }, 400);
+  });
+});
+
+/* ── Scroll progress bar (thin top indicator) ── */
+(function initScrollBar() {
+  const bar = document.createElement('div');
+  bar.style.cssText = 'position:fixed;top:0;left:0;height:2px;z-index:9999;background:linear-gradient(90deg,#1565C0,#42A5F5);width:0%;transition:width 0.1s;pointer-events:none;';
+  document.body.prepend(bar);
+  window.addEventListener('scroll', () => {
+    const pct = (window.scrollY / (document.body.scrollHeight - window.innerHeight)) * 100;
+    bar.style.width = pct + '%';
+  }, { passive: true });
+})();
+
+/* ── Highlight active nav link on scroll ── */
+(function initActiveNav() {
+  const sections = document.querySelectorAll('section[id], div[id]');
+  if (!sections.length) return;
+  const navLinks = document.querySelectorAll('.nav-links a');
+  const io = new IntersectionObserver(entries => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        navLinks.forEach(a => {
+          a.classList.toggle('active', a.getAttribute('href') === '#' + e.target.id);
+        });
+      }
+    });
+  }, { threshold: 0.4 });
+  sections.forEach(s => io.observe(s));
+})();
